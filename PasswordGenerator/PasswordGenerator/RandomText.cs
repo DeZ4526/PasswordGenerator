@@ -4,16 +4,21 @@ namespace PasswordGenerator
 {
 	static class RandomText
 	{
+		public const string СapitalLetters = "QWERTYUIOPASDFGHJKLZXCVBNM";
+		public const string LowercaseLetters = "qwertyuiopasdfghjklzxcvbnm";
+		public const string Numbers = "1234567890";
+		public const string SpecialCharacters = "!@#$%^&*()_+{}|\\:\"<>?/,.`~'";
+
 		public static string GenRandText(bool useСapitalLetters, bool useLowercaseLetters, bool useNumbers, bool useSpecialCharacters, int length, string charArray = "")
 		{
 			if (useСapitalLetters)
-				charArray += "QWERTYUIOPASDFGHJKLZXCVBNM";
+				charArray += СapitalLetters;
 			if (useLowercaseLetters)
-				charArray += "qwertyuiopasdfghjklzxcvbnm";
+				charArray += LowercaseLetters;
 			if (useNumbers)
-				charArray += "1234567890";
+				charArray += Numbers;
 			if (useSpecialCharacters)
-				charArray += "!@#$%^&*()_+{}|\\:\"<>?/,.`~";
+				charArray += SpecialCharacters;
 			return GenRandText(charArray, length);
 		}
 		public static string GenRandText(string charArray, int length)
