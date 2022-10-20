@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordGenerator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="PasswordGenerator" Height="400" Width="300" MaxWidth="400" MaxHeight="500" MinWidth="250" MinHeight="300">
     <Grid>
-        
-    </Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="40"/>
+		</Grid.RowDefinitions>
+		<StackPanel>
+			<TextBlock HorizontalAlignment="Center">Settings</TextBlock>
+			<CheckBox>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock>Use capital letters</TextBlock>
+					<Button>?</Button>
+				</StackPanel>
+			</CheckBox>
+			<CheckBox>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock>Use lowercase letters</TextBlock>
+					<Button>?</Button>
+				</StackPanel>
+			</CheckBox>
+			<CheckBox>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock>Use numbers</TextBlock>
+					<Button>?</Button>
+				</StackPanel>
+			</CheckBox>
+			<CheckBox>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock>Use special characters</TextBlock>
+					<Button>?</Button>
+				</StackPanel>
+			</CheckBox>
+			<CheckBox>
+				<StackPanel Orientation="Horizontal">
+					<TextBox Width="200"></TextBox>
+					<Button>?</Button>
+				</StackPanel>
+			</CheckBox>
+			<TextBlock HorizontalAlignment="Center">Password</TextBlock>
+			<TextBox TextWrapping="Wrap" Height="200" Margin="5"></TextBox>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+			<Button>Copy password</Button>
+			<Button>Information</Button>
+			<Button Click="Button_GenPasw">Generate password</Button>
+		</StackPanel>
+	</Grid>
 </Window>

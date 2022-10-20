@@ -24,5 +24,10 @@ namespace PasswordGenerator
 		{
 			InitializeComponent();
 		}
+
+		private void Button_GenPasw(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show(RandomText.GenRandText(true, true, true, true, 1000));
+		}
 	}
 }
