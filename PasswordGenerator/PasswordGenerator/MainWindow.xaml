@@ -4,52 +4,53 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordGenerator"
+		xmlns:vm="clr-namespace:PasswordGenerator.ViewModels"
         mc:Ignorable="d"
         Title="PasswordGenerator" Height="400" Width="300" MaxWidth="400" MaxHeight="500" MinWidth="250" MinHeight="300">
-    <Grid>
+	<Window.DataContext>
+		<vm:PGViewModel/>
+	</Window.DataContext>
+	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
 			<RowDefinition Height="40"/>
 		</Grid.RowDefinitions>
 		<StackPanel>
 			<TextBlock HorizontalAlignment="Center">Settings</TextBlock>
-			<CheckBox>
+			<CheckBox IsChecked="{Binding UseCapitalLetters}">
+				Use capital letters
+			</CheckBox>
+			<CheckBox  IsChecked="{Binding UseLowerLetters}">
+				Use lowercase letters
+			</CheckBox>
+			<CheckBox IsChecked="{Binding UseNumbers}">
+				Use numbers
+			</CheckBox>
+			<CheckBox IsChecked="{Binding UseSpecialChars}">
+				Use special characters
+			</CheckBox>
+			<CheckBox IsChecked="{Binding UseMyChars}">
 				<StackPanel Orientation="Horizontal">
-					<TextBlock>Use capital letters</TextBlock>
-					<Button>?</Button>
+					<TextBox Width="200" Text="{Binding MyChars}" IsEnabled="{Binding UseMyChars}"/>
 				</StackPanel>
 			</CheckBox>
-			<CheckBox>
-				<StackPanel Orientation="Horizontal">
-					<TextBlock>Use lowercase letters</TextBlock>
-					<Button>?</Button>
-				</StackPanel>
-			</CheckBox>
-			<CheckBox>
-				<StackPanel Orientation="Horizontal">
-					<TextBlock>Use numbers</TextBlock>
-					<Button>?</Button>
-				</StackPanel>
-			</CheckBox>
-			<CheckBox>
-				<StackPanel Orientation="Horizontal">
-					<TextBlock>Use special characters</TextBlock>
-					<Button>?</Button>
-				</StackPanel>
-			</CheckBox>
-			<CheckBox>
-				<StackPanel Orientation="Horizontal">
-					<TextBox Width="200"></TextBox>
-					<Button>?</Button>
-				</StackPanel>
-			</CheckBox>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<TextBlock>Length:</TextBlock>
+				<TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Length}"/>
+				<Slider Grid.Column="2" Value="{Binding Length}" Maximum="200"/>
+			</Grid>
 			<TextBlock HorizontalAlignment="Center">Password</TextBlock>
-			<TextBox TextWrapping="Wrap" Height="200" Margin="5"></TextBox>
+			<TextBox TextWrapping="Wrap" Height="200" Margin="5" Text="{Binding Password}" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-			<Button>Copy password</Button>
+			<Button Command="{Binding CopyPassword}">Copy password</Button>
 			<Button>Information</Button>
-			<Button Click="Button_GenPasw">Generate password</Button>
+			<Button Command="{Binding GeneratePassword}">Generate password</Button>
 		</StackPanel>
 	</Grid>
 </Window>
