@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:PasswordGenerator"
 		xmlns:vm="clr-namespace:PasswordGenerator.ViewModels"
         mc:Ignorable="d"
-        Title="PasswordGenerator" Height="400" Width="300" MaxWidth="400" MaxHeight="500" MinWidth="250" MinHeight="300">
+        Title="Password generator" 
+		Height="400" Width="350"
+		WindowStyle="ToolWindow"
+		ResizeMode="NoResize">
 	<Window.DataContext>
 		<vm:PGViewModel/>
 	</Window.DataContext>
@@ -42,15 +45,16 @@
 				</Grid.ColumnDefinitions>
 				<TextBlock>Length:</TextBlock>
 				<TextBlock Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Length}"/>
-				<Slider Grid.Column="2" Value="{Binding Length}" Maximum="200"/>
+				<Slider Grid.Column="2" Value="{Binding Length}" Minimum="3" Maximum="200"/>
 			</Grid>
 			<TextBlock HorizontalAlignment="Center">Password</TextBlock>
-			<TextBox TextWrapping="Wrap" Height="200" Margin="5" Text="{Binding Password}" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"/>
+			<TextBox TextWrapping="Wrap" Height="120" Text="{Binding Password}" />
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+		<StackPanel Orientation="Horizontal" Background="{StaticResource Brush2}" Grid.Row="1" HorizontalAlignment="Center">
 			<Button Command="{Binding CopyPassword}">Copy password</Button>
 			<Button>Information</Button>
 			<Button Command="{Binding GeneratePassword}">Generate password</Button>
+			
 		</StackPanel>
 	</Grid>
 </Window>

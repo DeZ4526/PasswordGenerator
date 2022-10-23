@@ -108,10 +108,7 @@ namespace PasswordGenerator.ViewModels
 		}
 		public ICommand CopyPassword
 		{
-			get
-			{
-				return new DelegateCommand((obj) => Clipboard.SetText(Password));
-			}
+			get => new DelegateCommand((obj) => Clipboard.SetText(Password));
 		}
 	}
 }
