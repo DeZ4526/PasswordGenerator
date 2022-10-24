@@ -8,17 +8,30 @@
         mc:Ignorable="d"
         Title="Password generator" 
 		Height="400" Width="350"
-		WindowStyle="ToolWindow"
+		WindowStyle="None"
 		ResizeMode="NoResize">
 	<Window.DataContext>
 		<vm:PGViewModel/>
 	</Window.DataContext>
 	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
 			<RowDefinition/>
 			<RowDefinition Height="40"/>
 		</Grid.RowDefinitions>
-		<StackPanel>
+		<Grid Background="{StaticResource DarkBaseBrush}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="30"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock Text="{Binding Title,RelativeSource={RelativeSource FindAncestor,AncestorType=Window}}" VerticalAlignment="Center" Margin="5" MouseLeftButtonDown="Top_MouseLeftButtonDown"/>
+			<Button Grid.Column="1" VerticalAlignment="Center" Width="20" Height="20" Command="{Binding Close}">
+				<Border x:Name="Border" Width="10" Height="10"  >
+					<Path Width="7" Height="7" x:Name="CheckMark" SnapsToDevicePixels="False"  Stroke="{StaticResource Brush3}" StrokeThickness="2" Data="M 0 0 L 7 7 M 0 7 L 7 0" />
+				</Border>
+			</Button>
+		</Grid>
+		<StackPanel Grid.Row="1">
 			<TextBlock HorizontalAlignment="Center">Settings</TextBlock>
 			<CheckBox IsChecked="{Binding UseCapitalLetters}">
 				Use capital letters
@@ -50,7 +63,7 @@
 			<TextBlock HorizontalAlignment="Center">Password</TextBlock>
 			<TextBox TextWrapping="Wrap" Height="120" Text="{Binding Password}" />
 		</StackPanel>
-		<StackPanel Orientation="Horizontal" Background="{StaticResource Brush2}" Grid.Row="1" HorizontalAlignment="Center">
+		<StackPanel Orientation="Horizontal" Background="{StaticResource Brush2}" Grid.Row="2" HorizontalAlignment="Center" >
 			<Button Command="{Binding CopyPassword}">Copy password</Button>
 			<Button>Information</Button>
 			<Button Command="{Binding GeneratePassword}">Generate password</Button>

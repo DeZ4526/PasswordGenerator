@@ -3,7 +3,7 @@
 	<Color x:Key="BaseColor" >#1a1a1a</Color>
 	<SolidColorBrush x:Key="BaseBrush" Color="{StaticResource BaseColor}"/>
 
-	<Color x:Key="DarkBaseColor" >#000000</Color>
+	<Color x:Key="DarkBaseColor" >#151719</Color>
 	<SolidColorBrush x:Key="DarkBaseBrush" Color="{StaticResource DarkBaseColor}"/>
 
 	<Color x:Key="Color2">#4faab3</Color>

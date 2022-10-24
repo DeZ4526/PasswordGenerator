@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
@@ -109,6 +110,10 @@ namespace PasswordGenerator.ViewModels
 		public ICommand CopyPassword
 		{
 			get => new DelegateCommand((obj) => Clipboard.SetText(Password));
+		}
+		public ICommand Close
+		{
+			get => new DelegateCommand((obj) => Environment.Exit(0));
 		}
 	}
 }
