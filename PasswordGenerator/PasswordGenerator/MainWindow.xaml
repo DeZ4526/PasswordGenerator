@@ -65,7 +65,7 @@
 		</StackPanel>
 		<StackPanel Orientation="Horizontal" Background="{StaticResource Brush2}" Grid.Row="2" HorizontalAlignment="Center" >
 			<Button Command="{Binding CopyPassword}">Copy password</Button>
-			<Button>Information</Button>
+			<Button Command="{Binding GetInfo}">Information</Button>
 			<Button Command="{Binding GeneratePassword}">Generate password</Button>
 			
 		</StackPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PasswordGenerator.Models;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -115,5 +116,10 @@ namespace PasswordGenerator.ViewModels
 		{
 			get => new DelegateCommand((obj) => Environment.Exit(0));
 		}
+		public ICommand GetInfo
+		{
+			get => new DelegateCommand((obj) => MessageBox.Show("Version : " + Info.Version + "\nAuthor : " + Info.Author + "\n\nGitHub : " + Info.GitHub, "Password generator"));
+		}
+		
 	}
 }
